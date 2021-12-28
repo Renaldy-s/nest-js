@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "logs/.3c3162beb0943bafb712979ada53011a30460760-audit.json",
+    "files": [
+        {
+            "date": 1639630620567,
+            "name": "logs/ts-messaging-api-16-12-2021.log",
+            "hash": "86617e68ba72afa2575533f3a5f4d222"
+        }
+    ]
+}

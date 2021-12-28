@@ -1,0 +1,21 @@
+import { Request, Response } from 'express';
+import { testController } from '../controller/TestController';
+import { serviceMiddleware } from '../middleware/middleware';
+
+const express = require('express');
+const router = express.Router();
+
+router.post('/test', serviceMiddleware, testController.getTestResponse);
+
+router.get('/health', (req: Request, res: Response) => {
+  res.status(200).json({
+    status: 'OK',
+    message: 'Messaging API is live.'
+  });
+});
+
+router.get('*', function (req: Request, res: Response) {
+  res.status(404).json();
+});
+
+module.exports = router;
