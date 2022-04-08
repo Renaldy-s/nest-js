@@ -10,7 +10,7 @@ router.post('/test', serviceMiddleware, testController.getTestResponse);
 router.get('/health', (req: Request, res: Response) => {
   res.status(200).json({
     status: 'OK',
-    message: 'Messaging API is live.'
+    message: 'Service is live.'
   });
 });
 

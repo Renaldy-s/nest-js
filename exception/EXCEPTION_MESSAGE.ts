@@ -12,5 +12,8 @@ export const EXCEPTION_MESSAGE = {
   DATA_NOT_FOUND: { message: 'DATA_NOT_FOUND', code: 400, level: LEVEL.WARN },
   INVALID_LOAN_ID: { message: 'INVALID_LOAN_ID', code: 400, level: LEVEL.ERROR },
   NOT_AUTHORIZED: { message: 'NOT_AUTHORIZED', code: 401, level: LEVEL.WARN },
+  OPERATION_DENIED: { message: 'OPERATION_DENIED', code: 401, level: LEVEL.WARN },
+  DUPLICATE_DATA: { message: 'DUPLICATE_DATA', code: 409, level: LEVEL.WARN },
+  UNPROCESSABLE_ENTITY: { message: 'UNPROCESSABLE_ENTITY', code: 422, level: LEVEL.WARN },
   PROCESSING_ERROR: { message: 'PROCESSING_ERROR', code: 500, level: LEVEL.ERROR }
 };
