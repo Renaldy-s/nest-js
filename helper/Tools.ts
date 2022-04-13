@@ -14,6 +14,10 @@ class Tools {
     return { password: crypt, salt: salt };
   }
 
+  public static base64(value: string) {
+    return CryptoJS.SHA256(value).toString();
+  }
+
   public static hashPassword (password: string, salt: string): string {
     return CryptoJS.PBKDF2(password, salt, { keySize: 256 / 32 }).toString();
   }
@@ -47,7 +51,7 @@ class Tools {
       const value = _.get(data, key);
 
       if (_.isObject(value)) {
-        data[camelCaseKey] = this.toSnakeCase(value);
+        data[camelCaseKey] = Tools.toSnakeCase(value);
       } else {
         data[camelCaseKey] = value;
       }
@@ -67,7 +71,7 @@ class Tools {
       const value = _.get(data, key);
 
       if (_.isObject(value)) {
-        data[camelCaseKey] = this.toCamelCase(value);
+        data[camelCaseKey] = Tools.toCamelCase(value);
       } else {
         data[camelCaseKey] = value;
       }
@@ -87,7 +91,7 @@ class Tools {
       const value = _.get(data, key);
 
       if (_.isObject(value)) {
-        data[camelCaseKey] = this.toUpperCase(value);
+        data[camelCaseKey] = Tools.toUpperCase(value);
       } else {
         data[camelCaseKey] = value;
       }

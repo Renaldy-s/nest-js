@@ -1,0 +1,25 @@
+{
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": {
+            "source": "PowerShell",
+            "icon": "terminal-powershell"
+        },
+        "Command Prompt": {
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [],
+            "icon": "terminal-cmd"
+        },
+        "Git Bash": {
+            "source": "Git Bash"
+        },
+        "cmder" :{
+            "path": "${env:windir}\\System32\\cmd.exe",
+            "args": ["/K", "C:\\cmder\\vendor\\bin\\vscode_init.cmd"]
+        }
+    },
+    "editor.tabSize": 2
+}
+    
