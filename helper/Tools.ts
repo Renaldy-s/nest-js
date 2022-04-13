@@ -14,7 +14,7 @@ class Tools {
     return { password: crypt, salt: salt };
   }
 
-  public static base64(value: string) {
+  public static sha256(value: string) {
     return CryptoJS.SHA256(value).toString();
   }
 

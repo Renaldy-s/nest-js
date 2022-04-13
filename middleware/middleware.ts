@@ -47,7 +47,7 @@ async function checkAuthentication(
       // check redis
       const arrayToken = JSON.parse(verify.accessToken)
       const redisSession = new Redis();
-      const resultUserToken: any = await redisSession.get(tools.base64(`${arrayToken.clientId}-${arrayToken.clientSecret}`))
+      const resultUserToken: any = await redisSession.get(tools.sha256(`${arrayToken.clientId}-${arrayToken.clientSecret}`))
       if(!resultUserToken){
         throw new CustomException(EXCEPTION_MESSAGE.REDIS_EXPIRED, resultUserToken)
       } else {
