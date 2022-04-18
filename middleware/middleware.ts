@@ -38,25 +38,26 @@ async function checkAuthentication(
   try {
     if (req.headers.authorization !== undefined && req.headers.authorization !== '') {
       // check jwtToken
-      const verify = verifyToken(req.headers.authorization)
+      const verify = verifyToken(req.headers.authorization);
       if(verify == 'expired'){
-        throw new CustomException(EXCEPTION_MESSAGE.SESSION_EXPIRED, verify)
+        throw new CustomException(EXCEPTION_MESSAGE.SESSION_EXPIRED, verify);
       } else if(verify == 'error'){
-        throw new CustomException(EXCEPTION_MESSAGE.NOT_AUTHORIZED, verify)
+        throw new CustomException(EXCEPTION_MESSAGE.NOT_AUTHORIZED, verify);
       }
       // check redis
-      const arrayToken = JSON.parse(verify.accessToken)
+      const arrayToken = JSON.parse(verify.accessToken);
       const redisSession = new Redis();
-      const resultUserToken: any = await redisSession.get(tools.sha256(`${arrayToken.clientId}-${arrayToken.clientSecret}`))
-      if(!resultUserToken){
-        throw new CustomException(EXCEPTION_MESSAGE.REDIS_EXPIRED, resultUserToken)
+      const keyToken = "TEMPLATE-" + tools.sha256(`${arrayToken.clientId}-${arrayToken.clientSecret}`);
+      const resultUserToken: any = await redisSession.get(keyToken);
+      if(!resultUserToken) {
+        throw new CustomException(EXCEPTION_MESSAGE.REDIS_EXPIRED, resultUserToken);
       } else {
         const userParam = JSON.parse(resultUserToken);
         req.body.userId = userParam.id;
         next();
       }
     } else {
-      throw new CustomException(EXCEPTION_MESSAGE.NOT_AUTHORIZED)
+      throw new CustomException(EXCEPTION_MESSAGE.NOT_AUTHORIZED);
     }
   } catch (e) {
     if (e instanceof CustomException) {
