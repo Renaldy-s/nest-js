@@ -1,13 +1,12 @@
 {
   "watch": [
-    "connection/*",
-    "controller/*",
-    "exception/*",
-    "helper/*",
-    "middleware/*",
-    "route/*",
+    "controllers/*",
+    "exceptions/*",
+    "helpers/*",
+    "middlewares/*",
+    "routes/*",
     "sequelize/*",
-    "service/*",
+    "services/*",
     "./.env.local"
   ],
   "ext": "ts js",

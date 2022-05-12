@@ -1,4 +1,4 @@
-const router = require('./route/Router');
+const router = require('./routes/Router');
 var cors = require('cors');
 var express = require('express');
 var responseTime = require('response-time');
