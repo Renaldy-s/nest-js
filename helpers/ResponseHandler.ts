@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { LEVEL, EXCEPTION_MESSAGE } from '../exception/EXCEPTION_MESSAGE';
+import { LEVEL, EXCEPTION_MESSAGE } from '../exceptions/EXCEPTION_MESSAGE';
 import { Request, Response } from 'express';
 import logger from './Logger';
 const { serializeError } = require('serialize-error');

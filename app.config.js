@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'ts-bootstrap',
+      name: 'be-template',
       script: './build/server.js',
       instances: '2',
       exec_mode: 'cluster',

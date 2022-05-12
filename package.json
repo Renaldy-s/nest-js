@@ -1,5 +1,5 @@
 {
-  "name": "ts-bootstrap",
+  "name": "be-template",
   "version": "1.0.0",
   "description": "This is Backend Project Template",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=local dotenv-load nodemon",
     "tsc": "tsc"
   },
-  "author": "PT FINANSIAL INTEGRASI TEKNOLOGI",
+  "author": "PT GROSIRONE PRIMA NUSANTARA",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^6.5.2",

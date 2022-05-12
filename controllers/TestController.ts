@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { TestService } from '../service/TestService';
-import { ResponseHandler } from '../helper/ResponseHandler';
-import { EXCEPTION_MESSAGE } from '../exception/EXCEPTION_MESSAGE';
-import { CustomException } from '../exception/CustomException';
+import { TestService } from '../services/TestService';
+import { ResponseHandler } from '../helpers/ResponseHandler';
+import { EXCEPTION_MESSAGE } from '../exceptions/EXCEPTION_MESSAGE';
+import { CustomException } from '../exceptions/CustomException';
 import * as Joi from 'joi';
 
 export class TestController {
