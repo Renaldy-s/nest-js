@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
-import { testController } from '../controllers/TestController';
-import { serviceMiddleware } from '../middlewares/middleware';
+import {Request, Response} from 'express';
+import {testController} from '../controllers/TestController';
+import {serviceMiddleware} from '../middlewares/middleware';
 
 const express = require('express');
 const router = express.Router();
@@ -10,7 +10,7 @@ router.post('/test', serviceMiddleware, testController.getTestResponse);
 router.get('/health', (req: Request, res: Response) => {
   res.status(200).json({
     status: 'OK',
-    message: 'Service is live.'
+    message: 'Service is live.',
   });
 });
 

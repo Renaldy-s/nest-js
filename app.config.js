@@ -18,13 +18,13 @@ module.exports = {
       env_development: {
         SERVICE_NAME: 'ts-messaging-api',
         NODE_ENV: 'development',
-        NODE_PORT: 3000
+        NODE_PORT: 3000,
       },
       env_production: {
         SERVICE_NAME: 'ts-messaging-api',
         NODE_ENV: 'production',
-        NODE_PORT: 3000
-      }
-    }
-  ]
+        NODE_PORT: 3000,
+      },
+    },
+  ],
 };

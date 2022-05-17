@@ -6,16 +6,16 @@ var responseTime = require('response-time');
 class App {
   app: any;
 
-  constructor () {
+  constructor() {
     this.app = express().disable('x-powered-by');
     this.config();
   }
 
-  async config (): Promise<void> {
+  async config(): Promise<void> {
     this.app.use(responseTime());
     this.app.use(cors());
-    this.app.use(express.json({ limit: '100mb' }));
-    this.app.use(express.urlencoded({ extended: true, limit: '100mb' }));
+    this.app.use(express.json({limit: '100mb'}));
+    this.app.use(express.urlencoded({extended: true, limit: '100mb'}));
     this.app.use('/', router);
   }
 }

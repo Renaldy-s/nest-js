@@ -1,11 +1,15 @@
 /* eslint-disable prefer-promise-reject-errors */
 const redis = require('redis');
 const CryptoJS = require('crypto-js');
-var client = redis.createClient({ host: process.env.REDIS_HOST, port: process.env.REDIS_PORT });
+var client = redis.createClient({
+  host: process.env.REDIS_HOST,
+  port: process.env.REDIS_PORT,
+});
 
-const REDIS_CRYPT = CryptoJS.AES.decrypt(process.env.REDIS_CRYPT.toString(), 'GROSIRONE').toString(
-  CryptoJS.enc.Utf8
-);
+const REDIS_CRYPT = CryptoJS.AES.decrypt(
+  process.env.REDIS_CRYPT.toString(),
+  'GROSIRONE',
+).toString(CryptoJS.enc.Utf8);
 
 client.on('connect', () => {
   client.auth(REDIS_CRYPT);
@@ -15,7 +19,7 @@ client.on('error', function (err: any) {
 });
 
 export default class RedisController {
-  updateValue (key: string, value: any, ttl: any) {
+  updateValue(key: string, value: any, ttl: any) {
     return new Promise((resolve, reject) => {
       client.hmset(key, value, function (err: any, result: any) {
         if (err) {
@@ -29,14 +33,13 @@ export default class RedisController {
     });
   }
 
-  publishAll (name: string) {
+  publishAll(name: string) {
     return new Promise((resolve, reject) => {
       client.hgetall(name, (err: any, reply: any) => {
         if (err) {
           console.log('publishAll', err);
           reject({});
-        } else
-        if (reply === null) {
+        } else if (reply === null) {
           reject({});
         } else {
           resolve(reply);
@@ -45,11 +48,11 @@ export default class RedisController {
     });
   }
 
-  set(key: string, value: any){
-    client.set(key,value);
+  set(key: string, value: any) {
+    client.set(key, value);
   }
 
-  get(key: string): Promise<string>{
+  get(key: string): Promise<string> {
     return new Promise((resolve, reject) => {
       client.get(key, (err, val) => {
         if (err) {
