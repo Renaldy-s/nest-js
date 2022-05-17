@@ -26,6 +26,7 @@ export class ResponseHandler {
           .json({
             status: 'FAILED',
             message: responseHandler.obj.message,
+            data: responseHandler.systemLog,
             traceId: req.body.traceId,
           });
       } else {
@@ -34,6 +35,7 @@ export class ResponseHandler {
           .json({
             status: 'FAILED',
             message: EXCEPTION_MESSAGE.PROCESSING_ERROR.message,
+            data: responseHandler.systemLog,
             traceId: req.body.traceId,
           });
       }
