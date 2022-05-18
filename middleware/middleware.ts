@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import {Request, Response, NextFunction} from 'express';
-import {verifyToken} from '../middlewares/jwt';
-import Redis from '../middlewares/redis';
+import {verifyToken} from './jwt';
+import Redis from './redis';
 import {ResponseHandler} from '../helpers/ResponseHandler';
 import {LEVEL, EXCEPTION_MESSAGE} from '../exceptions/EXCEPTION_MESSAGE';
 import logger from '../helpers/Logger';

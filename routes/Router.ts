@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {testController} from '../controllers/TestController';
-import {serviceMiddleware} from '../middlewares/middleware';
+import {serviceMiddleware} from '../middleware/middleware';
 
 const express = require('express');
 const router = express.Router();

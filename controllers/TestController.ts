@@ -1,11 +1,11 @@
+import {testService} from './../services/TestService';
 import {Request, Response} from 'express';
-import {TestService} from '../services/TestService';
 import {ResponseHandler} from '../helpers/ResponseHandler';
 import {EXCEPTION_MESSAGE} from '../exceptions/EXCEPTION_MESSAGE';
 import {CustomException} from '../exceptions/CustomException';
 import * as Joi from 'joi';
 
-export class TestController {
+class TestController {
   async getTestResponse(req: Request, res: Response): Promise<void> {
     try {
       const validationSchema: any = {
@@ -17,7 +17,7 @@ export class TestController {
 
       const validation: any = Joi.validate(req.body, validationSchema);
       if (validation.error === null) {
-        const result = await TestService.getTestResult(req.body);
+        const result = await testService.getTestResult(req.body);
 
         ResponseHandler.send(req, res, {data: result});
       } else {
