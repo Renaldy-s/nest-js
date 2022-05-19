@@ -3,11 +3,11 @@
     "controllers/*",
     "exceptions/*",
     "helpers/*",
-    "middlewares/*",
+    "middleware/*",
     "routes/*",
     "sequelize/*",
     "services/*",
-    "./.env.local"
+    "./.env"
   ],
   "ext": "ts js",
   "ignore": ["node_modules/*", "build/*", "/**/*.spec.ts"],
