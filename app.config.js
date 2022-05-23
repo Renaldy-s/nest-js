@@ -15,16 +15,6 @@ module.exports = {
       log_date_format: 'YYYY-MM-DD HH:mm:ss Z',
       time: true,
       combine_logs: true,
-      env_development: {
-        SERVICE_NAME: 'ts-messaging-api',
-        NODE_ENV: 'development',
-        NODE_PORT: 3000
-      },
-      env_production: {
-        SERVICE_NAME: 'ts-messaging-api',
-        NODE_ENV: 'production',
-        NODE_PORT: 3000
-      }
-    }
-  ]
+    },
+  ],
 };
