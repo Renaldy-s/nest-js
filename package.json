@@ -4,7 +4,7 @@
   "description": "This is Backend Project Template",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env dotenv-load nodemon",
+    "start": "dotenv-load nodemon",
     "tsc": "tsc"
   },
   "author": "PT GROSIRONE PRIMA NUSANTARA",
