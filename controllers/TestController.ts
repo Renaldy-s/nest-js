@@ -5,7 +5,7 @@ import {EXCEPTION_MESSAGE} from '../exceptions/EXCEPTION_MESSAGE';
 import {CustomException} from '../exceptions/CustomException';
 import * as Joi from 'joi';
 
-export class TestController {
+class TestController {
   async getTestResponse(req: Request, res: Response) {
     try {
       const validationSchema: any = {
