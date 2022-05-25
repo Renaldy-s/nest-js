@@ -34,6 +34,10 @@ export class HttpHelper {
     this.header = header;
     return this;
   }
+  setParams(params: any) {
+    this.params = params;
+    return this;
+  }
 
   async get() {
     this.method = 'get';
