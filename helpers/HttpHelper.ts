@@ -54,6 +54,16 @@ export class HttpHelper {
     return await this.run();
   }
 
+  async patch() {
+    this.method = 'patch';
+    return await this.run();
+  }
+
+  async delete() {
+    this.method = 'delete';
+    return await this.run();
+  }
+
   config() {
     return {
       url: this.url,
