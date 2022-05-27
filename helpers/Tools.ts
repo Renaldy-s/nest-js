@@ -23,11 +23,11 @@ class Tools {
     return CryptoJS.SHA256(value).toString();
   }
 
-  public static base64Encode(value: string){
+  public static base64Encode(value: string) {
     return Buffer.from(value).toString('base64');
-  } 
+  }
 
-  public static base64Decode(value: string){
+  public static base64Decode(value: string) {
     return Buffer.from(value, 'base64').toString();
   }
 
