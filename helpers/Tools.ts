@@ -23,6 +23,14 @@ class Tools {
     return CryptoJS.SHA256(value).toString();
   }
 
+  public static base64Encode(value: string){
+    return Buffer.from(value).toString('base64');
+  } 
+
+  public static base64Decode(value: string){
+    return Buffer.from(value, 'base64').toString();
+  }
+
   public static hashPassword(password: string, salt: string): string {
     return CryptoJS.PBKDF2(password, salt, {keySize: 256 / 32}).toString();
   }
