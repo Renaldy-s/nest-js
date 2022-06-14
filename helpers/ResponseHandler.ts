@@ -25,12 +25,14 @@ export class ResponseHandler {
           status: 'FAILED',
           message: responseHandler.obj.message,
           traceId: req.body.traceId,
+          data: responseHandler.systemLog,
         });
       } else {
         res.status(500).json({
           status: 'FAILED',
           message: EXCEPTION_MESSAGE.PROCESSING_ERROR.message,
           traceId: req.body.traceId,
+          data: responseHandler.systemLog,
         });
       }
 
