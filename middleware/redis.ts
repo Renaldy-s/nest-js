@@ -5,12 +5,10 @@ var client = redis.createClient({
   host: process.env.REDIS_HOST,
   port: process.env.REDIS_PORT,
 });
-
 const REDIS_CRYPT = CryptoJS.AES.decrypt(
   process.env.REDIS_CRYPT.toString(),
   'GROSIRONE',
 ).toString(CryptoJS.enc.Utf8);
-
 client.on('connect', () => {
   client.auth(REDIS_CRYPT);
 });
@@ -62,7 +60,6 @@ export default class RedisController {
           resolve(null);
           return;
         }
-
         resolve(val);
       });
     });

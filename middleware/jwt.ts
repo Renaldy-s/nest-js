@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken');
 
 function getSecret() {
   const ret = Buffer.from(process.env.JWT_SECRET, 'base64').toString();
-
   return ret;
 }
 
@@ -16,9 +15,6 @@ export function token(token: string): any {
     getSecret(),
     {expiresIn: '23h'},
   );
-
-  console.log('encoded_token', encodedToken);
-
   return encodedToken;
 }
 
@@ -43,7 +39,6 @@ export function verifyTokenAccess(token) {
     result = {userLogin};
     return result;
   } catch (e) {
-    console.log('verifyTokenAccess', e.message);
     return 'error';
   }
 }

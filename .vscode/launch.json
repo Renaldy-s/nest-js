@@ -26,7 +26,7 @@
             "args": [
                 "${workspaceFolder}/server.ts"
             ],
-            "envFile": "${workspaceFolder}/.env.local",
+            "envFile": "${workspaceFolder}/.env",
         }
     ]
 }

@@ -6,19 +6,15 @@ import {CustomException} from '../exceptions/CustomException';
 import * as Joi from 'joi';
 
 class TestController {
-  async getTestResponse(req: Request, res: Response) {
+  async getTestResponse(req: Request, res: Response): Promise<void> {
     try {
       const validationSchema: any = {
         parameter: Joi.string().allow(null).required(),
         trace_id: Joi.string().required(),
       };
-
-      console.log('req.body', req.body);
-
       const validation: any = Joi.validate(req.body, validationSchema);
       if (validation.error === null) {
         const result = await testService.getTestResult(req.body);
-
         ResponseHandler.send(req, res, {data: result});
       } else {
         throw new CustomException(

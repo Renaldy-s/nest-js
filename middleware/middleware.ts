@@ -26,7 +26,6 @@ export async function serviceMiddleware(
     statusCode: null,
     message: message,
   });
-
   checkAuthentication(req, res, next);
 }
 
@@ -40,14 +39,12 @@ async function checkAuthentication(
       req.headers.authorization !== undefined &&
       req.headers.authorization !== ''
     ) {
-      // check jwtToken
       const verify = verifyToken(req.headers.authorization);
       if (verify == 'expired') {
         throw new CustomException(EXCEPTION_MESSAGE.SESSION_EXPIRED, verify);
       } else if (verify == 'error') {
         throw new CustomException(EXCEPTION_MESSAGE.NOT_AUTHORIZED, verify);
       }
-      // check redis
       const arrayToken = JSON.parse(verify.accessToken);
       const redisSession = new Redis();
       const keyToken =
@@ -83,7 +80,6 @@ async function checkAuthentication(
         message: e,
       });
     }
-
     ResponseHandler.send(req, res, e, true);
   }
 }

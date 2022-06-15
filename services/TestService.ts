@@ -1,6 +1,6 @@
 class TestService {
-  async getTestResult(payload: any) {
-    return {test: 'Berhasil', payload};
+  async getTestResult(input: any): Promise<any> {
+    return {test: 'Berhasil', input};
   }
 }
 
