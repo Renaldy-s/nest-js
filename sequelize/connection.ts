@@ -1,4 +1,4 @@
-const {Sequelize} = require('sequelize');
+const { Sequelize } = require('sequelize');
 
 const connection = new Sequelize(
   process.env.DB_NAME,
@@ -7,7 +7,7 @@ const connection = new Sequelize(
   {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
-    pool: {max: 5},
+    pool: { max: 5 },
     logging: console.log,
     dialect: 'mysql',
     dialectOptions: {

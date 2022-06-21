@@ -1,13 +1,13 @@
 // eslint-disable-next-line no-unused-vars
-import {Request, Response, NextFunction} from 'express';
-import {verifyToken} from './jwt';
+import { Request, Response, NextFunction } from 'express';
+import { verifyToken } from './jwt';
 import Redis from './redis';
-import {ResponseHandler} from '../helpers/ResponseHandler';
-import {LEVEL, EXCEPTION_MESSAGE} from '../exceptions/EXCEPTION_MESSAGE';
+import { ResponseHandler } from '../helpers/ResponseHandler';
+import { LEVEL, EXCEPTION_MESSAGE } from '../exceptions/EXCEPTION_MESSAGE';
 import logger from '../helpers/Logger';
-import {v4 as uuidv4} from 'uuid';
-import {tools} from '../helpers/Tools';
-import {CustomException} from '../exceptions/CustomException';
+import { v4 as uuidv4 } from 'uuid';
+import { tools } from '../helpers/Tools';
+import { CustomException } from '../exceptions/CustomException';
 
 export async function serviceMiddleware(
   req: Request,

@@ -1,4 +1,4 @@
-import {EXCEPTION_MESSAGE} from './EXCEPTION_MESSAGE';
+import { EXCEPTION_MESSAGE } from './EXCEPTION_MESSAGE';
 
 interface logFormat {
   message: any;

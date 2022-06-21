@@ -12,7 +12,7 @@ const fileTransport: DailyRotateFile = new DailyRotateFile({
 const logger = winston.createLogger({
   exitOnError: false,
   format: winston.format.combine(
-    winston.format.timestamp({format: 'DD-MM-YYYY HH:mm:ss.SSS+07:00'}),
+    winston.format.timestamp({ format: 'DD-MM-YYYY HH:mm:ss.SSS+07:00' }),
     winston.format.json(),
   ),
   defaultMeta: {},

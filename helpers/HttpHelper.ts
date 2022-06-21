@@ -1,6 +1,6 @@
 import axios from 'axios';
 import logger from './Logger';
-import {LEVEL} from '../exceptions/EXCEPTION_MESSAGE';
+import { LEVEL } from '../exceptions/EXCEPTION_MESSAGE';
 
 export class HttpHelper {
   axios: any;

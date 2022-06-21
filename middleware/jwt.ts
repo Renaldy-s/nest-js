@@ -13,7 +13,7 @@ export function token(token: string): any {
       },
     },
     getSecret(),
-    {expiresIn: '23h'},
+    { expiresIn: '23h' },
   );
   return encodedToken;
 }
@@ -36,7 +36,7 @@ export function verifyTokenAccess(token) {
   try {
     var decodedToken = jwt.verify(token, getSecret());
     userLogin = Buffer.from(decodedToken.data, 'base64').toString('ascii');
-    result = {userLogin};
+    result = { userLogin };
     return result;
   } catch (e) {
     return 'error';

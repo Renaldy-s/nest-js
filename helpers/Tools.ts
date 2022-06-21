@@ -16,7 +16,7 @@ class Tools {
       keySize: 256 / 32,
     }).toString();
 
-    return {password: crypt, salt: salt};
+    return { password: crypt, salt: salt };
   }
 
   public static sha256(value: string) {
@@ -32,7 +32,7 @@ class Tools {
   }
 
   public static hashPassword(password: string, salt: string): string {
-    return CryptoJS.PBKDF2(password, salt, {keySize: 256 / 32}).toString();
+    return CryptoJS.PBKDF2(password, salt, { keySize: 256 / 32 }).toString();
   }
 
   public static getRandomString(length: number): string {

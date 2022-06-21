@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-expressions */
-import {LEVEL, EXCEPTION_MESSAGE} from '../exceptions/EXCEPTION_MESSAGE';
-import {Request, Response} from 'express';
+import { LEVEL, EXCEPTION_MESSAGE } from '../exceptions/EXCEPTION_MESSAGE';
+import { Request, Response } from 'express';
 import logger from './Logger';
-const {serializeError} = require('serialize-error');
+const { serializeError } = require('serialize-error');
 
 export class ResponseHandler {
   static send(
@@ -46,7 +46,7 @@ export class ResponseHandler {
     } else {
       res
         .status(200)
-        .json({status: 'SUCCESS', message: 'SUCCESS', ...responseHandler});
+        .json({ status: 'SUCCESS', message: 'SUCCESS', ...responseHandler });
 
       logger.log(LEVEL.INFO, 'SUCCESS', {
         traceId: req.body.traceId,
