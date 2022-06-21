@@ -58,9 +58,8 @@
     "ts-node": "^8.10.2"
   },
   "prettier": {
-    "bracketSpacing": false,
+    "bracketSpacing": true,
     "singleQuote": true,
-    "trailingComma": "all",
-    "arrowParens": "always"
+    "trailingComma": "all"
   }
 }
