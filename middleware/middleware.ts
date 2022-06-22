@@ -53,7 +53,7 @@ async function checkAuthentication(
       const resultUserToken: any = await redisSession.get(keyToken);
       if (!resultUserToken) {
         throw new CustomException(
-          EXCEPTION_MESSAGE.REDIS_EXPIRED,
+          EXCEPTION_MESSAGE.SESSION_EXPIRED,
           resultUserToken,
         );
       } else {

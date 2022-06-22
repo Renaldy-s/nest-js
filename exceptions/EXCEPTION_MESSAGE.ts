@@ -18,14 +18,13 @@ export const EXCEPTION_MESSAGE = {
     level: LEVEL.ERROR,
   },
   NOT_AUTHORIZED: { message: 'NOT_AUTHORIZED', code: 401, level: LEVEL.WARN },
-  REDIS_EXPIRED: { message: 'REDIS_EXPIRED', code: 401, level: LEVEL.WARN },
   SESSION_EXPIRED: { message: 'SESSION_EXPIRED', code: 401, level: LEVEL.WARN },
+  DUPLICATE_DATA: { message: 'DUPLICATE_DATA', code: 409, level: LEVEL.WARN },
   UNPROCESSABLE_ENTITY: {
     message: 'UNPROCESSABLE_ENTITY',
     code: 422,
     level: LEVEL.WARN,
   },
-  DUPLICATE_DATA: { message: 'DUPLICATE_DATA', code: 500, level: LEVEL.WARN },
   PROCESSING_ERROR: {
     message: 'PROCESSING_ERROR',
     code: 500,
