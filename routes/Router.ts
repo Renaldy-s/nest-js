@@ -10,11 +10,11 @@ router.post('/test', serviceMiddleware, testController.getTestResponse);
 router.get('/health', (req: Request, res: Response) => {
   res.status(200).json({
     status: 'OK',
-    message: 'Service is live.',
+    message: 'Service is live',
   });
 });
 
-router.get('*', function (req: Request, res: Response) {
+router.get('*', (req: Request, res: Response) => {
   res.status(404).json();
 });
 
