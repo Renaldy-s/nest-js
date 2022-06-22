@@ -14,7 +14,6 @@ export async function serviceMiddleware(
   res: Response,
   next: NextFunction,
 ): Promise<void> {
-  // add trace id to body if not exist
   const traceId: string = uuidv4();
   if (!req.body.traceId) req.body.traceId = traceId;
   const message: string = JSON.stringify({
@@ -26,7 +25,7 @@ export async function serviceMiddleware(
     statusCode: null,
     message: message,
   });
-  checkAuthentication(req, res, next);
+  // checkAuthentication(req, res, next);
 }
 
 async function checkAuthentication(
@@ -35,35 +34,35 @@ async function checkAuthentication(
   next: NextFunction,
 ) {
   try {
-    if (
-      req.headers.authorization !== undefined &&
-      req.headers.authorization !== ''
-    ) {
-      const verify = verifyToken(req.headers.authorization);
-      if (verify == 'expired') {
-        throw new CustomException(EXCEPTION_MESSAGE.SESSION_EXPIRED, verify);
-      } else if (verify == 'error') {
-        throw new CustomException(EXCEPTION_MESSAGE.NOT_AUTHORIZED, verify);
-      }
-      const arrayToken = JSON.parse(verify.accessToken);
-      const redisSession = new Redis();
-      const keyToken =
-        'TEMPLATE-' +
-        tools.sha256(`${arrayToken.clientId}-${arrayToken.clientSecret}`);
-      const resultUserToken: any = await redisSession.get(keyToken);
-      if (!resultUserToken) {
-        throw new CustomException(
-          EXCEPTION_MESSAGE.SESSION_EXPIRED,
-          resultUserToken,
-        );
-      } else {
-        const userParam = JSON.parse(resultUserToken);
-        req.body.userId = userParam.id;
-        next();
-      }
-    } else {
-      throw new CustomException(EXCEPTION_MESSAGE.NOT_AUTHORIZED);
-    }
+    // if (
+    //   req.headers.authorization !== undefined &&
+    //   req.headers.authorization !== ''
+    // ) {
+    //   const verify = verifyToken(req.headers.authorization);
+    //   if (verify == 'expired') {
+    //     throw new CustomException(EXCEPTION_MESSAGE.SESSION_EXPIRED, verify);
+    //   } else if (verify == 'error') {
+    //     throw new CustomException(EXCEPTION_MESSAGE.NOT_AUTHORIZED, verify);
+    //   }
+    //   const arrayToken = JSON.parse(verify.accessToken);
+    //   const redisSession = new Redis();
+    //   const keyToken =
+    //     'TEMPLATE-' +
+    //     tools.sha256(`${arrayToken.clientId}-${arrayToken.clientSecret}`);
+    //   const resultUserToken: any = await redisSession.get(keyToken);
+    //   if (!resultUserToken) {
+    //     throw new CustomException(
+    //       EXCEPTION_MESSAGE.SESSION_EXPIRED,
+    //       resultUserToken,
+    //     );
+    //   } else {
+    //     const userParam = JSON.parse(resultUserToken);
+    //     req.body.userId = userParam.id;
+    //     next();
+    //   }
+    // } else {
+    //   throw new CustomException(EXCEPTION_MESSAGE.NOT_AUTHORIZED);
+    // }
   } catch (e) {
     if (e instanceof CustomException) {
       if (e.obj.code >= 500) {
