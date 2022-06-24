@@ -27,6 +27,7 @@ const connection = new Sequelize(
 //     pool: { max: 5 },
 //     logging: console.log,
 //     dialect: 'postgres',
+//     timezone: '+07:00',
 //   },
 // );
 
