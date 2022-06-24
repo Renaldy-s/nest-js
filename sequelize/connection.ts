@@ -7,7 +7,7 @@ const connection = new Sequelize(
   {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
-    pool: { max: 25 },
+    pool: { max: 5 },
     logging: console.log,
     dialect: 'mysql',
     dialectOptions: {
@@ -24,7 +24,7 @@ const connection = new Sequelize(
 //   {
 //     host: process.env.DB_HOST,
 //     port: process.env.DB_PORT,
-//     pool: { max: 25 },
+//     pool: { max: 5 },
 //     logging: console.log,
 //     dialect: 'postgres',
 //   },
