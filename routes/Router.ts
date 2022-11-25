@@ -1,11 +1,10 @@
 import { Request, Response } from 'express';
-import { testController } from '../controllers/TestController';
 import { serviceMiddleware } from '../middleware/middleware';
 
 const express = require('express');
 const router = express.Router();
 
-router.post('/test', serviceMiddleware, testController.getTestResponse);
+router.post('/auth', authController.getAccessKey);
 
 router.get('/health', (req: Request, res: Response) => {
   res.status(200).json({
