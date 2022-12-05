@@ -7,8 +7,8 @@ const connection = new Sequelize(
   {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
-    pool: { max: 100 },
-    logging: console.log,
+    pool: { max: 5 },
+    logging: `${process.env.NODE_ENV}` === 'production' ? false : console.log,
     dialect: 'mysql',
     dialectOptions: {
       timezone: '+07:00',
@@ -24,9 +24,10 @@ const connection = new Sequelize(
 //   {
 //     host: process.env.DB_HOST,
 //     port: process.env.DB_PORT,
-//     pool: { max: 100 },
-//     logging: console.log,
+//     pool: { max: 5 },
+//     logging: `${process.env.NODE_ENV}` === 'production' ? false : console.log,
 //     dialect: 'postgres',
+//     dialectOptions: { application_name: process.env.SERVICE_NAME },
 //     timezone: '+07:00',
 //   },
 // );
