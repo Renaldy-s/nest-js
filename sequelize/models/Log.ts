@@ -10,6 +10,7 @@ export const Log = sequelize.define(
       primaryKey: true,
       autoIncrement: false,
     },
+    route: DataTypes.STRING,
     partnerId: DataTypes.UUIDV4,
     request: DataTypes.JSON,
     response: DataTypes.JSON,
