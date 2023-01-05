@@ -1,4 +1,5 @@
 const router = require('./routes/Router');
+const pmRouter = require('./routes/PMRouter');
 var cors = require('cors');
 var express = require('express');
 var responseTime = require('response-time');
@@ -17,6 +18,7 @@ class App {
     this.app.use(express.json({ limit: '100mb' }));
     this.app.use(express.urlencoded({ extended: true, limit: '100mb' }));
     this.app.use('/1.0/', router);
+    this.app.user('/1.0/pinjam-modal/', pmRouter);
   }
 }
 
