@@ -18,7 +18,7 @@ class App {
     this.app.use(express.json({ limit: '100mb' }));
     this.app.use(express.urlencoded({ extended: true, limit: '100mb' }));
     this.app.use('/1.0/', router);
-    this.app.user('/1.0/pinjam-modal/', pmRouter);
+    this.app.use('/pinjam-modal/1.0/', pmRouter);
   }
 }
 
