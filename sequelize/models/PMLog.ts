@@ -1,8 +1,8 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../connection';
 
-export const Log = sequelize.define(
-  'log',
+export const PMLog = sequelize.define(
+  'PMLog',
   {
     id: {
       type: DataTypes.UUID,
@@ -16,7 +16,7 @@ export const Log = sequelize.define(
     response: DataTypes.JSON,
   },
   {
-    tableName: 'logs',
+    tableName: 'pm_logs',
     underscored: true,
     timestamps: true,
   },
