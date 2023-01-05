@@ -16,7 +16,7 @@ class App {
     this.app.use(cors());
     this.app.use(express.json({ limit: '100mb' }));
     this.app.use(express.urlencoded({ extended: true, limit: '100mb' }));
-    this.app.use('/', router);
+    this.app.use('/1.0/', router);
   }
 }
 

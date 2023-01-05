@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'be-template',
+      name: 'be-paylater',
       script: './build/server.js',
       instances: '2',
       exec_mode: 'cluster',

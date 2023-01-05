@@ -5,9 +5,10 @@ export const Partner = sequelize.define(
   'partner',
   {
     id: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.UUID,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: false,
+      defaultValue: DataTypes.UUIDV4,
     },
     clientApp: {
       type: DataTypes.STRING,

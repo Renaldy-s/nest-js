@@ -48,10 +48,9 @@ async function checkAuthentication(
         } else if (verify == 'error') {
           throw new CustomException(EXCEPTION_MESSAGE.NOT_AUTHORIZED, verify);
         } else {
-          // req.body.partnerId = verify.accessToken.id;
-          // req.body.partnerApp = verify.accessToken.clientApp;
-          // req.body.partnerName = verify.accessToken.clientName;
-          // req.body.appSourceId = verify.accessToken.appSourceId;
+          req.body.partnerId = verify.accessToken.id;
+          req.body.partnerApp = verify.accessToken.clientApp;
+          req.body.partnerName = verify.accessToken.clientName;
           next();
         }
       }

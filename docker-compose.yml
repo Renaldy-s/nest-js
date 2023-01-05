@@ -2,7 +2,7 @@ version: '3.7'
 services:
   web:
     build: .
-    container_name: be-template
+    container_name: be-paylater
     restart: always
     ports:
-      - 3000:3000
+      - 3007:3000
