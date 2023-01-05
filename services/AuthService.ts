@@ -5,7 +5,7 @@ import { partnerQuery } from '../sequelize/queries/PartnerQuery';
 import { token } from '../middleware/jwt';
 
 class AuthService {
-  async getAccessKey(input: any): Promise<any> {
+  async getAccessKey(input: any) {
     if (input.type === 'GRANT_ACCESS_KEY') {
       const keyObject = input.key.split(' ');
       if (keyObject[0] === 'Basic') {

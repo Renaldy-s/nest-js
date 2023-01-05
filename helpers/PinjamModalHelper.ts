@@ -1,11 +1,11 @@
 import { tools } from './Tools';
 
 export class PinjamModalHelper {
-  getUrl() {
+  static getUrl() {
     return process.env.PINJAM_MODAL_URL;
   }
 
-  getBasicKey() {
+  static getBasicKey() {
     const key = tools.base64Encode(
       `${process.env.PINJAM_MODAL_CLIENT_ID}:${process.env.PINJAM_MODAL_CLIENT_SECRET}`,
     );

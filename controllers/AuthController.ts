@@ -6,7 +6,7 @@ import { EXCEPTION_MESSAGE } from '../exceptions/EXCEPTION_MESSAGE';
 import { authService } from '../services/AuthService';
 
 class AuthController {
-  async getAccessKey(req: Request, res: Response): Promise<void> {
+  async getAccessKey(req: Request, res: Response) {
     try {
       const validationSchema = {
         key: Joi.string().required(),

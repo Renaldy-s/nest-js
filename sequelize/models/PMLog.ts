@@ -13,6 +13,7 @@ export const PMLog = sequelize.define(
     route: DataTypes.STRING,
     partnerId: DataTypes.UUIDV4,
     request: DataTypes.JSON,
+    statusCode: DataTypes.INTEGER,
     response: DataTypes.JSON,
   },
   {
