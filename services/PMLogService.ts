@@ -1,7 +1,6 @@
 import { Transaction } from 'sequelize';
 import { CustomException } from '../exceptions/CustomException';
 import { EXCEPTION_MESSAGE } from '../exceptions/EXCEPTION_MESSAGE';
-import { ResponseHandler } from '../helpers/ResponseHandler';
 import { sequelize } from '../sequelize/connection';
 import { pmLogQuery } from '../sequelize/queries/PMLogQuery';
 
