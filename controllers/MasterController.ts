@@ -47,6 +47,15 @@ class MasterController {
       ResponseHandler.send(req, res, error, true);
     }
   }
+
+  async getBusinessLength(req: Request, res: Response) {
+    try {
+      const data = await masterService.getBusinessLength(req.body);
+      ResponseHandler.send(req, res, { data });
+    } catch (error) {
+      ResponseHandler.send(req, res, error, true);
+    }
+  }
 }
 
 export const masterController = new MasterController();
