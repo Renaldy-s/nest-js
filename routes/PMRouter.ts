@@ -51,6 +51,11 @@ router.post(
   serviceMiddleware,
   onboardingController.verifyActivationOTP,
 );
+router.post(
+  '/plafond',
+  serviceMiddleware,
+  onboardingController.getPaylaterPlafond,
+);
 
 router.get('/health', (req: Request, res: Response) => {
   res.status(200).json({

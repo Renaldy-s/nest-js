@@ -268,6 +268,39 @@ class OnboardingService {
       });
     }
   }
+
+  async getPaylaterPlafond(input: any) {
+    const url = `${PinjamModalHelper.getUrl()}/activation/plafond`;
+    const authorization = PinjamModalHelper.getBasicKey();
+
+    const header = {
+      Authorization: authorization,
+      'Content-Type': 'application/json',
+    };
+
+    const body = { uniqueId: input.phoneNumber };
+
+    const { status, data } = await HttpHelper.request(url)
+      .setHeader(header)
+      .setBody(body)
+      .post();
+
+    await pmLogService.createLog({
+      partnerId: input.partnerId,
+      route: url,
+      request: body,
+      statusCode: status,
+      response: data,
+    });
+
+    if (status === 200) {
+      return data.data;
+    } else {
+      throw new CustomException(EXCEPTION_MESSAGE.UNPROCESSABLE_ENTITY, {
+        message: data.error,
+      });
+    }
+  }
 }
 
 export const onboardingService = new OnboardingService();

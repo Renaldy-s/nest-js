@@ -223,6 +223,31 @@ class OnboardingController {
       ResponseHandler.send(req, res, error, true);
     }
   }
+
+  async getPaylaterPlafond(req: Request, res: Response) {
+    try {
+      const validation = Joi.validate(
+        req.body,
+        {
+          phoneNumber: Joi.string().required(),
+        },
+        {
+          allowUnknown: true,
+        },
+      );
+      if (!validation.error) {
+        const data = await onboardingService.getPaylaterPlafond(req.body);
+        ResponseHandler.send(req, res, { data });
+      } else {
+        throw new CustomException(
+          EXCEPTION_MESSAGE.MISSING_REQUIRED_DATA,
+          validation.error.details,
+        );
+      }
+    } catch (error) {
+      ResponseHandler.send(req, res, error, true);
+    }
+  }
 }
 
 export const onboardingController = new OnboardingController();
