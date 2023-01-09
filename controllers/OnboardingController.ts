@@ -107,7 +107,9 @@ class OnboardingController {
               district: Joi.string().required(),
               subDistrict: Joi.string().required(),
               postalCode: Joi.string().required(),
-              residenceStatus: Joi.string().required(),
+              residenceStatus: Joi.string()
+                .valid('MILIK_SENDIRI', 'MILIK_ORANG_TUA', 'SEWA')
+                .required(),
             })
             .required(),
           store: Joi.object()
@@ -120,7 +122,7 @@ class OnboardingController {
               district: Joi.string().required(),
               subDistrict: Joi.string().required(),
               postalCode: Joi.string().required(),
-              ownershipStatus: Joi.string().required(),
+              ownershipStatus: Joi.string().valid('PRIBADI', 'SEWA').required(),
               currentBusinessLength: Joi.string().required(),
               experienceBusinessLength: Joi.string().required(),
             })
