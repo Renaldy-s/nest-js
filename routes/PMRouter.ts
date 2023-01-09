@@ -41,6 +41,16 @@ router.post(
   serviceMiddleware,
   onboardingController.submitDocumentFile,
 );
+router.post(
+  '/activation/otp/request',
+  serviceMiddleware,
+  onboardingController.requestActivationOTP,
+);
+router.post(
+  '/activation/otp/verify',
+  serviceMiddleware,
+  onboardingController.verifyActivationOTP,
+);
 
 router.get('/health', (req: Request, res: Response) => {
   res.status(200).json({
