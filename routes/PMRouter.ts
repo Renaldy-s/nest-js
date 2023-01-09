@@ -14,7 +14,7 @@ router.get(
 router.get('/genders', serviceMiddleware, masterController.getGender);
 router.get('/religions', serviceMiddleware, masterController.getReligion);
 router.get('/educations', serviceMiddleware, masterController.getEducation);
-router.get('/postal-code', serviceMiddleware, masterController.getPostalCode);
+router.post('/postal-code', serviceMiddleware, masterController.getPostalCode);
 router.get(
   '/business-length',
   serviceMiddleware,
