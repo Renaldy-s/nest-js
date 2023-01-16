@@ -50,6 +50,7 @@ class RepaymentService {
     const body = {
       loanId: input.loanId,
       referenceNumber: input.refNumber,
+      amountPayment: input.amountPayment,
     };
 
     const { status, data } = await HttpHelper.request(url)

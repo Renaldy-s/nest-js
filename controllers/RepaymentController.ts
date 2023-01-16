@@ -38,6 +38,7 @@ class RepaymentController {
         {
           loanId: Joi.string().required(),
           refNumber: Joi.string().required(),
+          amountPayment: Joi.number().required(),
         },
         {
           allowUnknown: true,
