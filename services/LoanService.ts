@@ -19,6 +19,9 @@ class LoanService {
       loanAmount: input.loanAmount,
       loanLength: input.loanLength,
       branchId: input.branchId,
+      referenceNumber: input.referenceNumber,
+      referenceDate: input.referenceDate,
+      storeName: input.storeName,
     };
 
     const { status, data } = await HttpHelper.request(url)

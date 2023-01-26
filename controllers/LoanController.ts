@@ -15,6 +15,9 @@ class LoanController {
           branchId: Joi.string().guid().required(),
           loanAmount: Joi.number().required(),
           loanLength: Joi.number().required(),
+          referenceNumber: Joi.string().required(),
+          referenceDate: Joi.string().required(),
+          storeName: Joi.string().required(),
         },
         {
           allowUnknown: true,
