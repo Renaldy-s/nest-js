@@ -4,6 +4,7 @@ import { masterController } from '../controllers/MasterController';
 import { onboardingController } from '../controllers/OnboardingController';
 import { loanController } from '../controllers/LoanController';
 import { repaymentController } from '../controllers/RepaymentController';
+import { callbackNotificationController } from '../controllers/CallbackNotificationController';
 
 const express = require('express');
 const router = express.Router();
@@ -87,6 +88,15 @@ router.post(
   '/repayment/offline/otp/verify',
   serviceMiddleware,
   repaymentController.offlineRepaymentOTPVerify,
+);
+
+router.post(
+  '/callback/loan/active',
+  callbackNotificationController.callbackOnLoanActive,
+);
+router.post(
+  '/callback/loan/repayment',
+  callbackNotificationController.callbackOnRepayment,
 );
 
 router.get('/health', (req: Request, res: Response) => {
