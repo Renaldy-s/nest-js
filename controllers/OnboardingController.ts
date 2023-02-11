@@ -152,8 +152,8 @@ class OnboardingController {
         req.body,
         {
           phoneNumber: Joi.string().required(),
-          idCardPicture: Joi.string().base64().required(),
-          selfieIdCardPicture: Joi.string().base64().required(),
+          idCardPicture: Joi.string().required(),
+          selfieIdCardPicture: Joi.string().required(),
         },
         {
           allowUnknown: true,

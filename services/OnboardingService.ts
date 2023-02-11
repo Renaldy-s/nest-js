@@ -169,17 +169,14 @@ class OnboardingService {
       'Content-Type': 'multipart/form-data',
     };
 
-    const idCardPicture = Buffer.from(input.idCardPicture, 'base64');
-    const selfieIdCardPicture = Buffer.from(
-      input.selfieIdCardPicture,
-      'base64',
-    );
+    const idCardPicture = Buffer.from(input.idCardPicture);
+    const selfieIdCardPicture = Buffer.from(input.selfieIdCardPicture);
 
-    const body = {
-      uniqueId: input.phoneNumber,
-      idCardPicture,
-      selfieIdCardPicture,
-    };
+    const FormData = require('form-data');
+    let body = new FormData();
+    body.append('uniqueId', input.phoneNumber);
+    body.append('idCardPicture', idCardPicture);
+    body.append('selfieIdCardPicture', selfieIdCardPicture);
 
     const { status, data } = await HttpHelper.request(url)
       .setHeader(header)
@@ -189,7 +186,11 @@ class OnboardingService {
     await pmLogService.createLog({
       partnerId: input.partnerId,
       route: url,
-      request: body,
+      request: {
+        uniqueId: input.phoneNumber,
+        idCardPicture: input.idCardPicture,
+        selfieIdCardPicture: input.selfieIdCardPicture,
+      },
       statusCode: status,
       response: data,
     });
