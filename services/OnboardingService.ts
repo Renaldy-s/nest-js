@@ -161,22 +161,19 @@ class OnboardingService {
   }
 
   async submitDocumentFile(input: any) {
-    const url = `${PinjamModalHelper.getUrl()}/submission/data/document`;
+    const url = `${PinjamModalHelper.getUrl()}/submission/data/document/base64`;
     const authorization = PinjamModalHelper.getBasicKey();
 
     const header = {
       Authorization: authorization,
-      'Content-Type': 'multipart/form-data',
+      'Content-Type': 'application/json',
     };
 
-    const idCardPicture = Buffer.from(input.idCardPicture);
-    const selfieIdCardPicture = Buffer.from(input.selfieIdCardPicture);
-
-    const FormData = require('form-data');
-    let body = new FormData();
-    body.append('uniqueId', input.phoneNumber);
-    body.append('idCardPicture', idCardPicture);
-    body.append('selfieIdCardPicture', selfieIdCardPicture);
+    const body = {
+      uniqueId: input.phoneNumber,
+      idCardPicture: input.idCardPicture,
+      selfieIdCardPicture: input.selfieIdCardPicture,
+    };
 
     const { status, data } = await HttpHelper.request(url)
       .setHeader(header)
@@ -186,11 +183,7 @@ class OnboardingService {
     await pmLogService.createLog({
       partnerId: input.partnerId,
       route: url,
-      request: {
-        uniqueId: input.phoneNumber,
-        idCardPicture: input.idCardPicture,
-        selfieIdCardPicture: input.selfieIdCardPicture,
-      },
+      request: body,
       statusCode: status,
       response: data,
     });
