@@ -99,14 +99,6 @@ class LoanService {
       .setBody(body)
       .post();
 
-    await pmLogService.createLog({
-      partnerId: input.partnerId,
-      route: url,
-      request: body,
-      statusCode: status,
-      response: data,
-    });
-
     if (status === 200) {
       return data.data;
     } else {
@@ -133,14 +125,6 @@ class LoanService {
       .setHeader(header)
       .setBody(body)
       .post();
-
-    await pmLogService.createLog({
-      partnerId: input.partnerId,
-      route: url,
-      request: body,
-      statusCode: status,
-      response: data,
-    });
 
     if (status === 200) {
       return data.data;

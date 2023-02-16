@@ -17,14 +17,6 @@ class MasterService {
       .setHeader(header)
       .post();
 
-    await pmLogService.createLog({
-      partnerId: input.partnerId,
-      route: url,
-      request: {},
-      statusCode: status,
-      response: data,
-    });
-
     if (status === 200) {
       return data.data;
     } else {
@@ -45,14 +37,6 @@ class MasterService {
     const { status, data } = await HttpHelper.request(url)
       .setHeader(header)
       .post();
-
-    await pmLogService.createLog({
-      partnerId: input.partnerId,
-      route: url,
-      request: {},
-      statusCode: status,
-      response: data,
-    });
 
     if (status === 200) {
       return data.data;
@@ -75,14 +59,6 @@ class MasterService {
       .setHeader(header)
       .post();
 
-    await pmLogService.createLog({
-      partnerId: input.partnerId,
-      route: url,
-      request: {},
-      statusCode: status,
-      response: data,
-    });
-
     if (status === 200) {
       return data.data;
     } else {
@@ -103,14 +79,6 @@ class MasterService {
     const { status, data } = await HttpHelper.request(url)
       .setHeader(header)
       .post();
-
-    await pmLogService.createLog({
-      partnerId: input.partnerId,
-      route: url,
-      request: {},
-      statusCode: status,
-      response: data,
-    });
 
     if (status === 200) {
       return data.data;
@@ -140,14 +108,6 @@ class MasterService {
       .setBody(body)
       .post();
 
-    await pmLogService.createLog({
-      partnerId: input.partnerId,
-      route: url,
-      request: body,
-      statusCode: status,
-      response: data,
-    });
-
     if (status === 200) {
       return data.data;
     } else {
@@ -168,14 +128,6 @@ class MasterService {
     const { status, data } = await HttpHelper.request(url)
       .setHeader(header)
       .post();
-
-    await pmLogService.createLog({
-      partnerId: input.partnerId,
-      route: url,
-      request: {},
-      statusCode: status,
-      response: data,
-    });
 
     if (status === 200) {
       return data.data;

@@ -23,14 +23,6 @@ class OnboardingService {
       .setBody(body)
       .post();
 
-    await pmLogService.createLog({
-      partnerId: input.partnerId,
-      route: url,
-      request: body,
-      statusCode: status,
-      response: data,
-    });
-
     if (status === 200) {
       return data.data;
     } else {
@@ -278,14 +270,6 @@ class OnboardingService {
       .setHeader(header)
       .setBody(body)
       .post();
-
-    await pmLogService.createLog({
-      partnerId: input.partnerId,
-      route: url,
-      request: body,
-      statusCode: status,
-      response: data,
-    });
 
     if (status === 200) {
       return data.data;
