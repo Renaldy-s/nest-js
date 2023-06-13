@@ -6,6 +6,37 @@ import { ResponseHandler } from '../helpers/ResponseHandler';
 import { loanService } from '../services/LoanService';
 
 class LoanController {
+  async loanCalculation(req: Request, res: Response) {
+    try {
+      const validation = Joi.validate(
+        req.body,
+        {
+          phoneNumber: Joi.string().required(),
+          branchId: Joi.string().guid().required(),
+          loanAmount: Joi.number().required(),
+          loanLength: Joi.number().required(),
+          referenceNumber: Joi.string().required(),
+          referenceDate: Joi.string().required(),
+          storeName: Joi.string().required(),
+        },
+        {
+          allowUnknown: true,
+        },
+      );
+      if (!validation.error) {
+        const data = await loanService.loanCalculation(req.body);
+        ResponseHandler.send(req, res, { data });
+      } else {
+        throw new CustomException(
+          EXCEPTION_MESSAGE.MISSING_REQUIRED_DATA,
+          validation.error.details,
+        );
+      }
+    } catch (error) {
+      ResponseHandler.send(req, res, error, true);
+    }
+  }
+
   async submitLoan(req: Request, res: Response) {
     try {
       const validation = Joi.validate(

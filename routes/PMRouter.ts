@@ -68,6 +68,7 @@ router.post(
   loanController.getLoanHistory,
 );
 router.post('/loan/status', serviceMiddleware, loanController.getLoanStatus);
+router.post('/loan/calculation', serviceMiddleware, loanController.loanCalculation);
 
 router.post(
   '/repayment/online',
