@@ -68,7 +68,11 @@ router.post(
   loanController.getLoanHistory,
 );
 router.post('/loan/status', serviceMiddleware, loanController.getLoanStatus);
-router.post('/loan/calculation', serviceMiddleware, loanController.loanCalculation);
+router.post(
+  '/loan/calculation',
+  serviceMiddleware,
+  loanController.loanCalculation,
+);
 
 router.post(
   '/repayment/online',
@@ -89,6 +93,11 @@ router.post(
   '/repayment/offline/otp/verify',
   serviceMiddleware,
   repaymentController.offlineRepaymentOTPVerify,
+);
+router.post(
+  '/repayment/cash',
+  serviceMiddleware,
+  repaymentController.cashRepayment,
 );
 
 router.post(
