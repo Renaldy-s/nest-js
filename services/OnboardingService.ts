@@ -213,7 +213,7 @@ class OnboardingService {
       response: data,
     });
 
-    if (status === 200) {
+    if (data.data.result.status === 'SUCCESS') {
       return data.data;
     } else {
       throw new CustomException(EXCEPTION_MESSAGE.UNPROCESSABLE_ENTITY, {
@@ -246,7 +246,7 @@ class OnboardingService {
       response: data,
     });
 
-    if (status === 200) {
+    if (data.data.result.status === 'SUCCESS') {
       return data.data;
     } else {
       throw new CustomException(EXCEPTION_MESSAGE.UNPROCESSABLE_ENTITY, {
