@@ -108,6 +108,10 @@ router.post(
   '/callback/loan/repayment',
   callbackNotificationController.callbackOnRepayment,
 );
+router.get(
+  '/callback/loan/active/:loanId',
+  callbackNotificationController.getLoanActiveCallback,
+);
 
 router.get('/health', (req: Request, res: Response) => {
   res.status(200).json({

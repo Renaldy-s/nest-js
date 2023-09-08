@@ -23,6 +23,17 @@ class CallbackNotificationService {
       }
     });
   }
+
+  async findLoanActiveCallback(input: any) {
+    const result = await callbackNotificationQuery.findByLoanId(input.loanId);
+    if (!result) {
+      throw new CustomException(EXCEPTION_MESSAGE.UNPROCESSABLE_ENTITY, {
+        message: 'Loan ID not found',
+      });
+    } else {
+      return result;
+    }
+  }
 }
 
 export const callbackNotificationService = new CallbackNotificationService();
