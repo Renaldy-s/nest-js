@@ -76,6 +76,7 @@ class OnboardingController {
         {
           phoneNumber: Joi.string().required(),
           email: Joi.string().email().required(),
+          branchId: Joi.string().required(),
           kyc: Joi.object()
             .keys({
               fullName: Joi.string().required(),
