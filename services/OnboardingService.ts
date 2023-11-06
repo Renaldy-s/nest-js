@@ -85,7 +85,6 @@ class OnboardingService {
       uniqueId: input.phoneNumber,
       mobileNumber: input.phoneNumber,
       emailAddress: input.email,
-      branchId: input.branchId,
       identificationData: {
         fullName: input.kyc.fullName,
         identificationNumber: input.kyc.NIK,
@@ -117,6 +116,7 @@ class OnboardingService {
         residenceStatus: input.domicile.residenceStatus,
       },
       storeAddress: {
+        branchId: input.branchId,
         address: input.store.address,
         rt: input.store.rt,
         rw: input.store.rw,
