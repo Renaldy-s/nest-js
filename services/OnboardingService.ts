@@ -102,7 +102,7 @@ class OnboardingService {
         city: input.kyc.city,
         district: input.kyc.district,
         subDistrict: input.kyc.subDistrict,
-        postalCode: input.kyc.postalCode,
+        postalCode: String(input.kyc.postalCode),
       },
       domicileAddress: {
         address: input.domicile.address,
@@ -112,7 +112,7 @@ class OnboardingService {
         city: input.domicile.city,
         district: input.domicile.district,
         subDistrict: input.domicile.subDistrict,
-        postalCode: input.domicile.postalCode,
+        postalCode: String(input.domicile.postalCode),
         residenceStatus: input.domicile.residenceStatus,
       },
       storeAddress: {
@@ -124,7 +124,7 @@ class OnboardingService {
         city: input.store.city,
         district: input.store.district,
         subDistrict: input.store.subDistrict,
-        postalCode: input.store.postalCode,
+        postalCode: String(input.store.postalCode),
         ownershipStatus: input.store.ownershipStatus,
         currentBusinessLength: input.store.currentBusinessLength,
         experienceBusinessLength: input.store.experienceBusinessLength,
