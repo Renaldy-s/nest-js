@@ -46,6 +46,7 @@ class OnboardingService {
       storePhone: input.phoneNumber,
       storeName: input.storeName,
       storeAddress: input.storeAddress,
+      originBranchId: input.branchId,
       firstTransaction: input.firstTransaction,
       transactions: input.transactions,
     };

@@ -39,6 +39,7 @@ class OnboardingController {
           phoneNumber: Joi.string().required(),
           storeName: Joi.string().required(),
           storeAddress: Joi.string().required(),
+          branchId: Joi.string().guid().required(),
           firstTransaction: Joi.date().required(),
           transactions: Joi.array()
             .items(
